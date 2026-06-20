@@ -45,8 +45,20 @@ module "route" {
     private_subnet_cids = module.subnets.private_subnet_cids
     region = var.region
     aws_profile = var.aws_profile  
+    node_group_name = var.node_group_name
+    instance_type = var.instance_type
+    desired_size = var.desired_size
+    max_size = var.max_size
+    min_size = var.min_size
     #cluster_version     = var.cluster_version
     #node_group_name     = var.node_group_name
     #node_group_size     = var.node_group_size
   }
+
+  module "security" {
+    source = "../modules/security"
+    vpc_id = module.vpc.vpc_id
+    cluster_name = var.cluster_name
+  }
+
 
