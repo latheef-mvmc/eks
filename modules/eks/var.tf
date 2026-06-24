@@ -34,3 +34,16 @@ variable "max_size" {
 variable "min_size" {
   type = number
 }
+# variable "ami_id" {
+#   type = string
+# }
+variable "node_security_group_id" {
+  description = "Security group ID for EKS worker nodes"
+  type        = string
+}
+
+
+# variable "key_name" {
+#   type = string
+# }
+

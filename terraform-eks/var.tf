@@ -40,3 +40,6 @@ variable "max_size" {
 variable "min_size" {
   type = number
 }
+# variable "ami_id" {
+#   type = string
+# }

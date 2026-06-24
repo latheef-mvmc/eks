@@ -1,13 +1,14 @@
-vpc_name    = "eks-vpc"
-vpc_cidr    = "30.0.0.0/16"
-region      = "ap-south-1"
-aws_profile = "default"
-cluster_name = "eks_cluster"
+vpc_name        = "eks-vpc"
+vpc_cidr        = "30.0.0.0/16"
+region          = "ap-south-1"
+aws_profile     = "default"
+cluster_name    = "eks_cluster"
 node_group_name = "eks_node_group"
-instance_type = "t3.large"
-desired_size = 1
-max_size = 2
-min_size = 1
+instance_type   = "t3.large"
+
+desired_size = 3
+max_size     = 6
+min_size     = 3
 
 
 public_subnet_cidrs = [

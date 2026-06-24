@@ -7,13 +7,17 @@ resource "aws_eks_cluster" "eks_cluster" {
   }
 
   role_arn = aws_iam_role.eks_cluster_role.arn
-  version  = "1.35"
+  version  = "1.33"
 
   vpc_config {
     #subnet_ids = var.public_subnet_cids + var.private_subnet_cids
     subnet_ids = var.private_subnet_cids
     endpoint_public_access = true
     endpoint_private_access = true
+
+     public_access_cidrs = [
+      "0.0.0.0/0"
+    ]
     
   }
 
