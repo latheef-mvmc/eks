@@ -43,3 +43,35 @@ variable "min_size" {
 # variable "ami_id" {
 #   type = string
 # }
+variable "key_name" {
+  type = string
+}
+
+variable "efs_creation_token" {
+  description = "Creation token for the Amazon EFS file system."
+  type        = string
+}
+variable "efs_name" {
+  description = "Name of the Amazon EFS file system."
+  type        = string
+}
+
+variable "efs_performance_mode" {
+  description = "Performance mode of the Amazon EFS file system."
+  type        = string
+}
+
+variable "efs_throughput_mode" {
+  description = "Throughput mode of the Amazon EFS file system."
+  type        = string
+}
+
+# variable "security_group_name" {
+#   description = "Name of the security group."
+#   type        = string
+# }
+
+variable "efs_encrypted" {
+  description = "Whether the Amazon EFS file system is encrypted."
+  type        = bool
+}

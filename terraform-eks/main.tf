@@ -54,6 +54,7 @@ module "eks" {
   desired_size           = var.desired_size
   max_size               = var.max_size
   min_size               = var.min_size
+  key_name                = var.key_name
 
 }
 
@@ -61,6 +62,19 @@ module "security" {
   source       = "../modules/security"
   vpc_id       = module.vpc.vpc_id
   cluster_name = var.cluster_name
+}
+
+module "efs" {
+  source = "../modules/efs"
+  vpc_id = module.vpc.vpc_id
+  private_subnet_cidrs = module.subnets.private_subnet_cids
+  cluster_name = var.cluster_name
+  eks_node_security_group_id = module.security.node_security_group_id
+  efs_performance_mode = var.efs_performance_mode
+  efs_encrypted = var.efs_encrypted
+  efs_name = var.efs_name
+  efs_throughput_mode = var.efs_throughput_mode
+  efs_creation_token = var.efs_creation_token
 }
 
 

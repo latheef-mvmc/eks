@@ -7,7 +7,7 @@ resource "aws_launch_template" "eks_node_lt" {
   #   var.node_security_group_id
   # ]
 
-  #key_name = var.key_name
+  key_name = var.key_name
 
   tag_specifications {
     resource_type = "instance"
