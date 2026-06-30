@@ -30,6 +30,15 @@ variable "node_group_name" {
 variable "instance_type" {
   type = string
 }
+
+# variable "bastion_instance_type" {
+#   type = string
+# }
+
+variable "bastion_name" {
+  type = string
+}
+
 variable "desired_size" {
   type = number
 }
@@ -40,9 +49,9 @@ variable "max_size" {
 variable "min_size" {
   type = number
 }
-# variable "ami_id" {
-#   type = string
-# }
+variable "ami_id" {
+  type = string
+}
 variable "key_name" {
   type = string
 }

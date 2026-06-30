@@ -5,10 +5,13 @@ aws_profile     = "default"
 cluster_name    = "eks_cluster"
 node_group_name = "eks_node_group"
 instance_type   = "t3.large"
-key_name       = "eks-key"
-desired_size = 3
-max_size     = 6
-min_size     = 3
+key_name        = "eks-key"
+desired_size    = 3
+max_size        = 6
+min_size        = 3
+ami_id          = "ami-006f82a1d5a27da54"
+bastion_name    = "eks-bastion"
+#bastion_instance_type = "t3.micro"
 
 public_subnet_cidrs = [
   "30.0.1.0/24",
@@ -26,7 +29,7 @@ availability_zones = [
   "ap-south-1c"
 ]
 
-efs_name = "eks-efs"
+efs_name           = "eks-efs"
 efs_creation_token = "eks-efs-token"
 
 efs_performance_mode = "generalPurpose"

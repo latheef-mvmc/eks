@@ -35,6 +35,10 @@ resource "aws_security_group_rule" "efs_ingress" {
   source_security_group_id = var.eks_node_security_group_id
 
   description = "Allow NFS traffic from EKS worker nodes"
+
+  # cidr_blocks = [
+  #   "0.0.0.0/0"
+  # ]
 }
 
 ############################

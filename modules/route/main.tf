@@ -7,7 +7,7 @@ resource "aws_route_table" "eks_pub_rt" {
   }
 }
 resource "aws_route" "eks_pub_route" {
-  count = length(var.public_subnet_cids)
+  #count = length(var.public_subnet_cids)
   route_table_id = aws_route_table.eks_pub_rt.id
   destination_cidr_block = "0.0.0.0/0"  
   gateway_id = var.igw_id

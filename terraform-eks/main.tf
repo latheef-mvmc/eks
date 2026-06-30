@@ -54,7 +54,7 @@ module "eks" {
   desired_size           = var.desired_size
   max_size               = var.max_size
   min_size               = var.min_size
-  key_name                = var.key_name
+  key_name               = var.key_name
 
 }
 
@@ -65,16 +65,29 @@ module "security" {
 }
 
 module "efs" {
-  source = "../modules/efs"
-  vpc_id = module.vpc.vpc_id
-  private_subnet_cidrs = module.subnets.private_subnet_cids
-  cluster_name = var.cluster_name
+  source                     = "../modules/efs"
+  vpc_id                     = module.vpc.vpc_id
+  private_subnet_cidrs       = module.subnets.private_subnet_cids
+  cluster_name               = var.cluster_name
   eks_node_security_group_id = module.security.node_security_group_id
-  efs_performance_mode = var.efs_performance_mode
-  efs_encrypted = var.efs_encrypted
-  efs_name = var.efs_name
-  efs_throughput_mode = var.efs_throughput_mode
-  efs_creation_token = var.efs_creation_token
+  efs_performance_mode       = var.efs_performance_mode
+  efs_encrypted              = var.efs_encrypted
+  efs_name                   = var.efs_name
+  efs_throughput_mode        = var.efs_throughput_mode
+  efs_creation_token         = var.efs_creation_token
 }
 
+module "bastion" {
+  source = "../modules/bastion"
 
+  bastion_name  = var.bastion_name
+  ami_id        = var.ami_id
+  #bastion_instance_type = var.bastion_instance_type
+  #instance_type = t3.micro
+  key_name      = var.key_name
+
+  vpc_id           = module.vpc.vpc_id
+  public_subnet_id = module.subnets.public_subnet_cids[0]
+
+  #allowed_ssh_cidr = var.allowed_ssh_cidr
+}

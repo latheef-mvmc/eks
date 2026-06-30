@@ -9,7 +9,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   subnet_ids = var.private_subnet_cids
 
   capacity_type = "ON_DEMAND"
-
+   
   instance_types = [
     var.instance_type
   ]
